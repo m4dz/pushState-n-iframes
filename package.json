@@ -1,0 +1,23 @@
+{
+  "name": "pushstate-and-iframes",
+  "description": "This POC try to tests pushState and iframes in a sandboxed environment",
+  "author": "m4dz <code@m4dz.net>",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "test": "brunch test"
+  },
+  "dependencies": {
+    "clean-css-brunch": ">= 1.0 < 1.8",
+    "coffee-script-brunch": "^1.8.1",
+    "css-brunch": ">= 1.0 < 1.8",
+    "jade-brunch": "^1.8.1",
+    "javascript-brunch": ">= 1.0 < 1.8",
+    "static-jade-brunch": "^1.7.0",
+    "uglify-js-brunch": ">= 1.0 < 1.8"
+  }
+}
