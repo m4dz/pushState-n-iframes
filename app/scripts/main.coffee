@@ -1,4 +1,7 @@
+config = require 'config'
+
 apps = []
+root = config.root
 
 
 findAppBySlug = (slug) ->
@@ -42,7 +45,7 @@ fakeIframeHistory = ->
 onSwitchApp = (slug) ->
     setTimeout ->
         appIframe = findAppBySlug slug
-        path = appIframe?.contentWindow.location.pathname || '/'
+        path = appIframe?.contentWindow.location.pathname or root
         window.history.pushState null, null, path
     , 35
 
@@ -62,8 +65,8 @@ onLaunch = (event) ->
 onPopState = (event) ->
     if this isnt window
         window.history.replaceState event.state, null, this.location.pathname
-    slug = window.location.pathname.substring(1).split('/')[0]
-    displayApp findAppBySlug(slug) || undefined
+    slug = window.location.pathname.substring(root.length).split('/')[0]
+    displayApp findAppBySlug(slug) or undefined
 
 
 bindEvents = ->

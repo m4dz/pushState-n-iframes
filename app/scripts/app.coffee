@@ -1,5 +1,10 @@
+config = require 'config'
+
+
 class App
-    constructor: (@name)->
+    constructor: (@name, options)->
+        console.debug options, config
+        @root = options?.root or '/'
         @log = document.getElementById 'console'
         console.debug "#{@name} | starts..."
         @bindEvents()
@@ -17,7 +22,8 @@ class App
 
     onPushState: =>
         step = @addStep()
-        window.history.pushState {steps: step + 1}, null, "/#{@name}/step#{step}"
+        url = "#{@root}#{@name}/step#{step}"
+        window.history.pushState {steps: step + 1}, null, url
         console.debug "#{@name} | push to step #{step}"
 
 
@@ -42,5 +48,9 @@ class App
         window.addEventListener 'popstate', @onPopState
 
 
-module.exports = (slug)->
-    window.application = new App slug
+module.exports = (slug, options)->
+    _options =
+        root: options?.root or config.root
+        pushState: optons?.pushState or false
+
+    window.application = new App slug, _options

@@ -10,4 +10,4 @@ html(lang="en")
         ol#console
             li Initial state
 
-        script(src="/app.js", onload="require('scripts/app')('app1');")
+        script(src="#{base}app.js", onload="require('scripts/app')('app1', {pushState: true});")

@@ -4,18 +4,18 @@ html(lang="en")
         meta(charset="utf-8")
         title pushState and iFrames
 
-        link(rel="stylesheet", href="/app.css")
+        link(rel="stylesheet", href="#{base}app.css")
 
 
     body
         h1 PushState and iFrames test
         nav: ul
-            li: a(href='/') Back Home
-            li: a(href='/app1/', data-app-slug="app1") Display App #1
-            li: a(href='/app2/', data-app-slug="app2") Display App #2
+            li: a(href='#{base}') Back Home
+            li: a(href='#{base}app1/', data-app-slug="app1") Display App #1
+            li: a(href='#{base}app2/', data-app-slug="app2") Display App #2
 
         .container
 
 
-        script(src="/app.js" onload="require('scripts/main')();")
+        script(src="#{base}app.js" onload="require('scripts/main')();")
 

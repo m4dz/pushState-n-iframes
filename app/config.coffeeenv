@@ -1,0 +1,2 @@
+(env) ->
+    root: "#{if env.BRUNCH_ENV is 'production' then '/pushState-n-iframes'}/"
